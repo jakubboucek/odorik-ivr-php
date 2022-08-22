@@ -1,0 +1,23 @@
+{
+    "name": "jakubboucek/odorik-ivr-sdk",
+    "description": "Odorik.cz IVR SDK",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jakub Bouček",
+            "email": "pan@jakubboucek.cz"
+        }
+    ],
+    "require": {
+        "psr/http-factory": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jakubboucek\\OdorikIvr\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
