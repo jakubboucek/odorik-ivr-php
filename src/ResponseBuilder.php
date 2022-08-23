@@ -16,6 +16,11 @@ class ResponseBuilder
 {
     use Composed;
 
+    public static function create(): self
+    {
+        return new self();
+    }
+
     public function add(Command $command): self
     {
         $this->commands[] = $command;
