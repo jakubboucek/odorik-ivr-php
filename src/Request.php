@@ -14,6 +14,7 @@ class Request
     private string $from;
     private string $to;
     private int $line;
+    private string $callId;
     private array $params;
 
     public function __construct(
@@ -22,6 +23,7 @@ class Request
         string $from,
         string $to,
         int $line,
+        string $callId,
         array $params
     ) {
         $this->baseUri = $baseUri;
@@ -29,6 +31,7 @@ class Request
         $this->from = $from;
         $this->to = $to;
         $this->line = $line;
+        $this->callId = $callId;
         $this->params = $params;
     }
 
@@ -38,16 +41,18 @@ class Request
         $baseUri = $request->getUri()->withQuery('')->withUserInfo('')->withFragment('');
 
         $params = $request->getQueryParams();
-        $dtmf = $params['dtmf'] ?? null;
-        $from = $params['from'];
-        $to = $params['to'];
-        $line = $params['line'];
+        $dtmf = isset($params['dtmf']) ? (string)$params['dtmf'] : null;
+        $from = (string)$params['from'];
+        $to = (string)$params['to'];
+        $line = (int)$params['line'];
+        $callId = (string)$params['sip_in_callid'];
 
         unset(
             $params['dtmf'],
             $params['from'],
             $params['to'],
-            $params['line']
+            $params['line'],
+            $params['sip_in_callid']
         );
 
         return new self(
@@ -56,6 +61,7 @@ class Request
             $from,
             $to,
             $line,
+            $callId,
             $params
         );
     }
@@ -67,6 +73,7 @@ class Request
             'from' => $this->from,
             'to' => $this->to,
             'line' => $this->line,
+            'sip_in_callid' => $this->callId,
         ];
 
         return $this->baseUri->withQuery(
@@ -99,6 +106,11 @@ class Request
     public function getLine(): int
     {
         return $this->line;
+    }
+
+    public function getCallId(): string
+    {
+        return $this->callId;
     }
 
     public function getParams(): array
@@ -138,6 +150,13 @@ class Request
     {
         $dolly = clone $this;
         $dolly->line = $line;
+        return $dolly;
+    }
+
+    public function withCallId(string $callId): self
+    {
+        $dolly = clone $this;
+        $dolly->callId = $callId;
         return $dolly;
     }
 
