@@ -1,6 +1,6 @@
 {
-    "name": "jakubboucek/odorik-ivr-sdk",
-    "description": "Odorik.cz IVR SDK",
+    "name": "jakubboucek/odorik-ivr",
+    "description": "Odorik.cz IVR lib",
     "type": "library",
     "license": "MIT",
     "authors": [
