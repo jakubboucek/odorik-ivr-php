@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Jakubboucek\OdorikIvr;
+namespace Jakubboucek\Odorik\Ivr;
 
-use Jakubboucek\OdorikIvr\ResponseCommand\Answer;
-use Jakubboucek\OdorikIvr\ResponseCommand\Command;
-use Jakubboucek\OdorikIvr\ResponseCommand\Composed;
-use Jakubboucek\OdorikIvr\ResponseCommand\HangUp;
-use Jakubboucek\OdorikIvr\ResponseCommand\Play;
+use Jakubboucek\Odorik\Ivr\ResponseCommand\Answer;
+use Jakubboucek\Odorik\Ivr\ResponseCommand\Command;
+use Jakubboucek\Odorik\Ivr\ResponseCommand\Composed;
+use Jakubboucek\Odorik\Ivr\ResponseCommand\HangUp;
+use Jakubboucek\Odorik\Ivr\ResponseCommand\Play;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 
@@ -31,12 +31,13 @@ class ResponseBuilder
             ->withBody($streamFactory->createStream((string)$this));
     }
 
-    public function answer():self
+    public function answer(): self
     {
         $this->add(new Answer());
         return $this;
     }
-    public function hangUp():self
+
+    public function hangUp(): self
     {
         $this->add(new HangUp());
         return $this;

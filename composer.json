@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Jakubboucek\\OdorikIvr\\": "src/"
+            "Jakubboucek\\Odorik\\Ivr\\": "src/"
         }
     },
     "config": {

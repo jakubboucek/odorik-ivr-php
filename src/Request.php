@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Jakubboucek\OdorikIvr;
+namespace Jakubboucek\Odorik\Ivr;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\UriInterface;

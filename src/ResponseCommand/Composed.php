@@ -2,12 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Jakubboucek\OdorikIvr\ResponseCommand;
-
-use ArrayAccess;
-use ArrayIterator;
-use InvalidArgumentException;
-use IteratorAggregate;
+namespace Jakubboucek\Odorik\Ivr\ResponseCommand;
 
 trait Composed
 {

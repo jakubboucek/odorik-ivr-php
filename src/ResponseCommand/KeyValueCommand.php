@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Jakubboucek\OdorikIvr\ResponseCommand;
+namespace Jakubboucek\Odorik\Ivr\ResponseCommand;
 
 abstract class KeyValueCommand implements Command
 {

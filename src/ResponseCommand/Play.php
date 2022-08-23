@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Jakubboucek\OdorikIvr\ResponseCommand;
+namespace Jakubboucek\Odorik\Ivr\ResponseCommand;
 
 use Psr\Http\Message\UriInterface;
 
@@ -10,7 +10,7 @@ class Play extends KeyValueCommand
 {
     public function __construct(string $uriOrId, bool $interuptible = false)
     {
-        parent::__construct($interuptible?'play2':'play', $uriOrId);
+        parent::__construct($interuptible ? 'play2' : 'play', $uriOrId);
     }
 
     public static function fromId(int $id, bool $interuptible = false): self
