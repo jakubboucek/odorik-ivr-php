@@ -37,8 +37,8 @@ class UriCallback implements Command
         array $params,
         bool $keepRestParams = true
     ): self {
-        $dtmfCount = isset($params['dtmfCount']) ? (string)$params['dtmfCount'] : null;
-        $timeout = isset($params['timeout']) ? (string)$params['timeout'] : null;
+        $dtmfCount = isset($params['dtmfCount']) ? (int)$params['dtmfCount'] : null;
+        $timeout = isset($params['timeout']) ? (int)$params['timeout'] : null;
         $annoucementId = isset($params['annoucementId']) ? (string)$params['annoucementId'] : null;
         $backupNumber = isset($params['backupNumber']) ? (string)$params['backupNumber'] : null;
         $errorEmail = isset($params['errorEmail']) ? (string)$params['errorEmail'] : null;

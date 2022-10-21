@@ -15,11 +15,11 @@ class Play extends KeyValueCommand
 
     public static function fromId(int $id, bool $interuptible = false): self
     {
-        return new static((string)$id, $interuptible);
+        return new self((string)$id, $interuptible);
     }
 
     public static function fromUri(UriInterface $uri, bool $interuptible = false): self
     {
-        return new static((string)$uri, $interuptible);
+        return new self((string)$uri, $interuptible);
     }
 }
