@@ -1,8 +1,12 @@
 {
     "name": "jakubboucek/odorik-ivr",
     "description": "Odorik.cz IVR lib",
-    "type": "library",
     "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "odorik",
+        "odorik.cz"
+    ],
     "authors": [
         {
             "name": "Jakub Bouček",
@@ -10,6 +14,7 @@
         }
     ],
     "require": {
+        "php": "^8.0 || ^8.1",
         "psr/http-factory": "^1.0"
     },
     "autoload": {
