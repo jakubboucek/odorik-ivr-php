@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Jakubboucek\Odorik\Ivr;
 
+use Jakubboucek\Odorik\Ivr\Exception\InvalidRequestException;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\UriInterface;
 
@@ -41,6 +42,13 @@ class Request
         $baseUri = $request->getUri()->withQuery('')->withUserInfo('')->withFragment('');
 
         $params = $request->getQueryParams();
+
+        foreach (['from', 'to', 'line', 'sip_in_callid'] as $key) {
+            if(isset($params[$key]) === false) {
+                throw new InvalidRequestException("Required field '{$key}' missing", $request);
+            }
+        }
+
         $dtmf = isset($params['dtmf']) ? (string)$params['dtmf'] : null;
         $from = (string)$params['from'];
         $to = (string)$params['to'];
