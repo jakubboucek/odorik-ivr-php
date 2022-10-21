@@ -7,6 +7,7 @@ namespace Jakubboucek\Odorik\Ivr;
 use Jakubboucek\Odorik\Ivr\ResponseCommand\Answer;
 use Jakubboucek\Odorik\Ivr\ResponseCommand\Command;
 use Jakubboucek\Odorik\Ivr\ResponseCommand\Composed;
+use Jakubboucek\Odorik\Ivr\ResponseCommand\Dial;
 use Jakubboucek\Odorik\Ivr\ResponseCommand\HangUp;
 use Jakubboucek\Odorik\Ivr\ResponseCommand\Play;
 use Psr\Http\Message\ResponseInterface;
@@ -48,11 +49,18 @@ class ResponseBuilder
         return $this;
     }
 
-    public function play(string $uriOrId, bool $interuptible = false)
+    public function play(string $uriOrId, bool $interuptible = false): self
     {
         $this->add(new Play($uriOrId, $interuptible));
         return $this;
     }
 
-
+    /**
+     * @param string|integer $number
+     */
+    public function dial($number): self
+    {
+        $this->add(new Dial((string)$number));
+        return $this;
+    }
 }
